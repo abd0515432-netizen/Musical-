@@ -1,4 +1,3 @@
-
 name: Build Musical APK
 
 on:
@@ -21,10 +20,10 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Accept Android SDK licenses
-        run: yes | sdkmanager --licenses
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4
 
-      - name: Install Android SDK
+      - name: Install Android packages
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
 
       - name: Set up Gradle
